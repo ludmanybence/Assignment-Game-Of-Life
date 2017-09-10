@@ -243,5 +243,17 @@ public class GOL{
         }
     }
 
+    private enum Position{
+        TOPLEFT,
+        TOPRIGHT,
+        BOTTOMLEFT,
+        BOTTOMRIGHT,
+        TOP,
+        LEFT,
+        RIGHT,
+        BOTTOM,
+        MIDDLE
+    }
+
 }
 
