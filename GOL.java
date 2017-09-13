@@ -31,7 +31,7 @@ public class GOL{
 
         // simulate generations
         for(int i= 0;i < gens;i++){
-            System.out.println("Generation " + (i+1) + ":");
+            System.out.println("Generation " + i + ":");
             print(dish);
             System.out.println();
             dish_old = dish;
@@ -86,7 +86,7 @@ public class GOL{
                 boolean isAlive = (dish[i].charAt(j) == alive);
                 int neighboursAlive = 0;
 
-                Position cellPos = checkCoordinates(j,i, dish.length);
+                Position cellPos = checkCoordinates(j,i, dish.length, dish[0].length()  );
 
                 //Check neighbouring coordinates
                 switch(cellPos){
@@ -182,11 +182,12 @@ public class GOL{
     }
 
     //Return where in the grid a cell is (a corner, a side or the middle)
-    private static Position checkCoordinates(int x, int y, int arrayLength){
+    private static Position checkCoordinates(int x, int y, int arrayLength, int lineLength){
 
         Position pos = Position.MIDDLE;
         //arrayLength-1 because we compare to indices
         arrayLength--;
+        lineLength--;
 
         if(x == 0){
             if(y == 0){
@@ -199,7 +200,7 @@ public class GOL{
                 pos = Position.LEFT;
             }
         }
-        else if(x==arrayLength){
+        else if(x==lineLength){
             if(y==0){
                 pos = Position.TOPRIGHT;
             }
